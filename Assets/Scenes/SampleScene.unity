@@ -414,7 +414,7 @@ MonoBehaviour:
   Elements:
   - GameObjects:
     - {fileID: 1725165682}
-    SpeedRatio: 0.125
+    SpeedRatio: 0.25
     RepositionLogic:
       PositionMode: 4
       ScaleHeight: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
       MaxXPercent: 0
   - GameObjects:
     - {fileID: 1304475206}
-    SpeedRatio: 0.0625
+    SpeedRatio: 0.125
     RepositionLogic:
       PositionMode: 4
       ScaleHeight: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
       MaxXPercent: 0
   - GameObjects:
     - {fileID: 1694028366}
-    SpeedRatio: 0.03125
+    SpeedRatio: 0.0625
     RepositionLogic:
       PositionMode: 4
       ScaleHeight: 0
@@ -1490,8 +1490,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694028366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7537524, y: -0.9, z: 0.73828125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.03, y: 0.029, z: 0.73828125}
+  m_LocalScale: {x: 1, y: 1.1591141, z: 1}
   m_Children: []
   m_Father: {fileID: 390226397}
   m_RootOrder: 0
@@ -1631,7 +1631,7 @@ GameObject:
   - component: {fileID: 1725165683}
   - component: {fileID: 1725165684}
   m_Layer: 0
-  m_Name: level0_0
+  m_Name: fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1690,12 +1690,12 @@ SpriteRenderer:
   m_SortingLayerID: -1861770569
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ca7ba9e8bfe1bce40a15fb370ee0b4d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aace03752f013e24a96aab7da43e675b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 25.333334, y: 10.666667}
+  m_Size: {x: 28.23813, y: 7.6799994}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1887,7 +1887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876349139}
   m_LocalRotation: {x: 0.11182968, y: -0.99365747, z: 0.0117154345, w: 0.0013184965}
-  m_LocalPosition: {x: -0.92, y: 1.27, z: -8.55}
+  m_LocalPosition: {x: -1.08, y: 1.16, z: -8.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210504510}
@@ -2713,12 +2713,12 @@ PrefabInstance:
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.96
+      value: -2.64
       objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
