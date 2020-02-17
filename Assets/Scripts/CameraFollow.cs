@@ -20,6 +20,7 @@
          {
              Vector3 posNoZ = transform.position;
              posNoZ.z = target.transform.position.z;
+             posNoZ.y = target.transform.position.y;
   
              Vector3 targetDirection = (target.transform.position - posNoZ);
   

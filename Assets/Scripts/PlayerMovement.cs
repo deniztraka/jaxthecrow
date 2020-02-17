@@ -71,4 +71,8 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMove = 0;
     }
+
+    public float GetHorizontalMove(){
+        return horizontalMove;
+    }
 }
