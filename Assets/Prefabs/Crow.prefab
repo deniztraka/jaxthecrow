@@ -881,11 +881,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfdd18147d1fdb419c533b94c668ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 15
-  Stamina: 15
+  MaxStamina: 15
+  stamina: 15
   WingPower: 5
   MovementSpeed: 20
   CollectableCount: 0
+  OnStaminaChanged:
+    m_PersistentCalls:
+      m_Calls: []
   isOnLand: 0
 --- !u!1 &4901270307785808046
 GameObject:
