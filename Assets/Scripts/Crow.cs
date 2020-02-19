@@ -6,9 +6,11 @@ using UnityEngine.Events;
 
 public class Crow : MonoBehaviour
 {
-    
+
     public float MaxStamina = 15;
     private bool isAscending;
+
+    private CharacterController2D characterController2D;
 
     [SerializeField]
     private float stamina = 15;
@@ -17,9 +19,7 @@ public class Crow : MonoBehaviour
         get { return stamina; }
         set
         {
-            if(value != stamina){
-                OnStaminaChanged.Invoke();
-            }
+            OnStaminaChanged.Invoke();
             stamina = value;
         }
     }
@@ -34,21 +34,23 @@ public class Crow : MonoBehaviour
 
     void Start()
     {
-
+        characterController2D = gameObject.GetComponent<CharacterController2D>();
+        characterController2D.OnLandEvent.AddListener(Landed);
     }
 
     void FixedUpdate()
     {
-        if (Stamina <= MaxStamina && !isAscending)
+        //if (Stamina <= MaxStamina && !isAscending)
+        if (Stamina <= MaxStamina && isOnLand)
         {
             Stamina += 0.1f;
-            Stamina = Stamina > MaxStamina ? MaxStamina : Stamina;
+            Stamina = Stamina > MaxStamina ? MaxStamina : Stamina;            
         }
     }
 
-    public void Landed()
+    public void Landed(bool onLand)
     {
-
+        isOnLand = onLand;
     }
 
     internal void Collect(Collectable collectable)
@@ -59,11 +61,11 @@ public class Crow : MonoBehaviour
 
     public void Flap()
     {
-        Stamina -= WingPower;
+        Stamina -= WingPower;        
     }
 
     public void AscendingStatusChanged(bool isAscending)
     {
-        this.isAscending = isAscending;
+        //this.isAscending = isAscending;
     }
 }

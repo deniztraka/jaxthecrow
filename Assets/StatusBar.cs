@@ -12,11 +12,12 @@ public class StatusBar : MonoBehaviour
     {
         slider = gameObject.GetComponent<Slider>();
         Crow.OnStaminaChanged.AddListener(UpdateStatus);
+        slider.maxValue = Crow.MaxStamina;
     }
 
     public void UpdateStatus()
-    {                
-        slider.value = Crow.Stamina / Crow.MaxStamina;
+    {        
+        slider.value = Crow.Stamina;
     }
 }
 

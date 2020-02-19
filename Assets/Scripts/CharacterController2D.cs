@@ -6,6 +6,11 @@ public class AscendingStatusChanged : UnityEvent<bool>
 {
 }
 
+[System.Serializable]
+public class OnLandEvent : UnityEvent<bool>
+{
+}
+
 public class CharacterController2D : MonoBehaviour
 {
 
@@ -45,7 +50,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Events")]
     [Space]
 
-    public UnityEvent OnLandEvent;
+    public OnLandEvent OnLandEvent;
 
     public AscendingStatusChanged AscendingStatusChanged;
 
@@ -63,7 +68,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
         {
-            OnLandEvent = new UnityEvent();
+            OnLandEvent = new OnLandEvent();
         }
 
         if (OnJumpEvent == null)
@@ -95,11 +100,11 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                if (!wasGrounded)
-                {
-                    OnLandEvent.Invoke();
-
-                }
+                // if (!wasGrounded)
+                // {
+                //     OnLandEvent.Invoke(true);
+                // }
+                // OnLandEvent.Invoke(false);
             }
         }
     }
@@ -194,13 +199,19 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsFlying", false);
+            OnLandEvent.Invoke(true);
+            //Debug.Log("onLand");
         }
+        else
 
         if (!m_Grounded && Mathf.FloorToInt(m_Rigidbody2D.velocity.y) != 0)
         {
             animator.SetBool("IsFlying", true);
             animator.SetBool("IsWalking", false);
+             OnLandEvent.Invoke(false);
+            //Debug.Log("flying");
         }
+        else
 
         if (m_Grounded && (horizontalVelocity >= -1 && horizontalVelocity <= 1))
         {
@@ -212,7 +223,7 @@ public class CharacterController2D : MonoBehaviour
                 //Debug.Log(rnd);
                 animator.SetTrigger("Eyes");
             }
-            
+            OnLandEvent.Invoke(true);
         }
 
         //Debug.Log(horizontalVelocity);
