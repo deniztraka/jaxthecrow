@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8214102264435324165}
   - component: {fileID: 5580612797903988169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5099256549142058178}
   - component: {fileID: 2570880873268498972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4385941871274503437}
   - component: {fileID: 4466152134953056548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegLeft2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3355760921047477870}
   - component: {fileID: 5129554963696136367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4573496981079385476}
   - component: {fileID: 8646186736197878649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3991293454384105009}
   - component: {fileID: 9014820003133238047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2366790460975640192}
   - component: {fileID: 6633750352880048584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773680609496207749}
   - component: {fileID: 8844539998292944600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegRight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4901270306453789130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4901270307216956614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901270307216956615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.057, z: 0}
+  m_LocalPosition: {x: 0, y: -0.082, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4901270307219846955}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 4901270307219846951}
   - component: {fileID: 4901270307219846950}
   - component: {fileID: 4901270307219846948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crow
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -806,25 +806,14 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1024
   m_GroundCheck: {fileID: 4901270307216956614}
   m_CeilingCheck: {fileID: 4901270306453789130}
   m_CrouchDisableCollider: {fileID: 0}
   animator: {fileID: 8629226091865380405}
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4901270307219846948}
-        m_MethodName: Landed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   AscendingStatusChanged:
     m_PersistentCalls:
       m_Calls:
@@ -881,10 +870,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfdd18147d1fdb419c533b94c668ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStamina: 15
-  stamina: 15
+  MaxStamina: 50
+  stamina: 50
   WingPower: 5
-  MovementSpeed: 20
+  MovementSpeed: 50
   CollectableCount: 0
   OnStaminaChanged:
     m_PersistentCalls:
@@ -900,7 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901270307785808041}
   - component: {fileID: 4901270307785808040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8307785948214318888}
   - component: {fileID: 407786703403664419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InnerTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085757862532108756}
   - component: {fileID: 8629226091865380405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9191343999856102431}
   - component: {fileID: 750135421004326558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7399910164652356132}
   - component: {fileID: 975123433773633304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6855571307390027353}
   - component: {fileID: 2814159122324838783}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1862598404669434957}
   - component: {fileID: 1008326213283528779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InnerNeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
