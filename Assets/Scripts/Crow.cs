@@ -14,6 +14,8 @@ public class Crow : MonoBehaviour
 
     [SerializeField]
     private float stamina = 15;
+    private float landedMovementSpeed = 0;
+
     public float Stamina
     {
         get { return stamina; }
@@ -36,6 +38,19 @@ public class Crow : MonoBehaviour
     {
         characterController2D = gameObject.GetComponent<CharacterController2D>();
         characterController2D.OnLandEvent.AddListener(Landed);
+        landedMovementSpeed = MovementSpeed;
+    }
+
+    void Update()
+    {
+        if (isOnLand)
+        {
+            MovementSpeed = landedMovementSpeed;
+        }
+        else
+        {
+            MovementSpeed = landedMovementSpeed * 1.5f;
+        }
     }
 
     void FixedUpdate()
@@ -44,7 +59,7 @@ public class Crow : MonoBehaviour
         if (Stamina <= MaxStamina && isOnLand)
         {
             Stamina += 0.1f;
-            Stamina = Stamina > MaxStamina ? MaxStamina : Stamina;            
+            Stamina = Stamina > MaxStamina ? MaxStamina : Stamina;
         }
     }
 
@@ -61,7 +76,7 @@ public class Crow : MonoBehaviour
 
     public void Flap()
     {
-        Stamina -= WingPower;        
+        Stamina -= WingPower;
     }
 
     public void AscendingStatusChanged(bool isAscending)
