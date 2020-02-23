@@ -215,7 +215,7 @@ public class FreeParallaxElement
     public List<GameObject> GameObjects;
 
     [Tooltip("The speed at which this object moves in relation to the speed of the parallax.")]
-    [Range(0.0f, 1.0f)]
+    [Range(-1.0f, 1.0f)]
     public float SpeedRatio;
 
     [Tooltip("Contains logic on how this object repositions itself when moving off screen.")]
