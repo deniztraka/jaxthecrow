@@ -16,11 +16,6 @@ public class Collectable : MonoBehaviour
 
     }
 
-    public virtual void Use()
-    {
-        Debug.Log("you got a collectable.");
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...

@@ -781,13 +781,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 4901270307219846952}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 185b0605de8c10d46aed68cddb108a68, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
+  m_Offset: {x: 0, y: -0.01}
   serializedVersion: 2
-  m_Radius: 0.042176634
+  m_Radius: 0.1
 --- !u!114 &4901270307219846951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,11 +871,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxStamina: 50
+  level: 0
   stamina: 50
   WingPower: 5
   MovementSpeed: 50
-  CollectableCount: 0
+  collectableCount: 0
   OnStaminaChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLevelChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollectableCountChanged:
     m_PersistentCalls:
       m_Calls: []
   isOnLand: 0

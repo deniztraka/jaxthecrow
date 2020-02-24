@@ -8,6 +8,18 @@ public class Crow : MonoBehaviour
 {
 
     public float MaxStamina = 15;
+    [SerializeField]
+    private int level = 1;
+    public int Level
+    {
+        get { return level; }
+        set
+        {            
+            level = value;
+            OnLevelChanged.Invoke();
+        }
+    }
+
     private bool isAscending;
 
     private CharacterController2D characterController2D;
@@ -20,16 +32,30 @@ public class Crow : MonoBehaviour
     {
         get { return stamina; }
         set
-        {
-            OnStaminaChanged.Invoke();
+        {            
             stamina = value;
+            OnStaminaChanged.Invoke();
         }
     }
     public float WingPower = 20;
     public float MovementSpeed = 40f;
-    public int CollectableCount;
+
+    [SerializeField]
+    private int collectableCount;
+    public int CollectableCount
+    {
+        get { return collectableCount; }
+        set
+        {            
+            collectableCount = value;
+            OnCollectableCountChanged.Invoke();
+        }
+    }
+
 
     public UnityEvent OnStaminaChanged;
+    public UnityEvent OnLevelChanged;
+    public UnityEvent OnCollectableCountChanged;
 
     [SerializeField]
     private bool isOnLand = false;
@@ -39,6 +65,12 @@ public class Crow : MonoBehaviour
         characterController2D = gameObject.GetComponent<CharacterController2D>();
         characterController2D.OnLandEvent.AddListener(Landed);
         landedMovementSpeed = MovementSpeed;
+    }
+
+    internal void LevelUp()
+    {
+        Level++;
+        CollectableCount = 0;
     }
 
     void Update()
@@ -59,7 +91,7 @@ public class Crow : MonoBehaviour
         if (Stamina <= MaxStamina && isOnLand)
         {
             Stamina += 0.1f;
-            Stamina = Stamina > MaxStamina ? MaxStamina : Stamina;
+            Stamina = Stamina >= MaxStamina ? MaxStamina : Stamina;
         }
     }
 
@@ -69,8 +101,7 @@ public class Crow : MonoBehaviour
     }
 
     internal void Collect(Collectable collectable)
-    {
-        collectable.Use();
+    {        
         CollectableCount++;
     }
 
