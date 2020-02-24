@@ -18,7 +18,7 @@ public class ParallaxController : MonoBehaviour
         if (parallax != null)
         {
             parallax.Speed = movement.GetHorizontalMove() * -0.01f;
-            Debug.Log(movement.GetHorizontalMove());
+            //Debug.Log(movement.GetHorizontalMove());
         }
     }
 }
