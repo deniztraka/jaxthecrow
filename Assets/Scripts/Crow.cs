@@ -20,6 +20,9 @@ public class Crow : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private ParticleSystem jumpParticles;
+
     private bool isAscending;
 
     private CharacterController2D characterController2D;
@@ -62,7 +65,8 @@ public class Crow : MonoBehaviour
     public UnityEvent OnCollectableCountChanged;
 
     [SerializeField]
-    private bool isOnLand = false;
+    private bool wasOnLand = false;
+    private bool wasFlying = false;
 
     void Start()
     {
@@ -80,7 +84,7 @@ public class Crow : MonoBehaviour
 
     void Update()
     {
-        if (isOnLand)
+        if (wasOnLand)
         {
             MovementSpeed = landedMovementSpeed;
         }
@@ -93,7 +97,7 @@ public class Crow : MonoBehaviour
     void FixedUpdate()
     {
         //if (Stamina <= MaxStamina && !isAscending)
-        if (Stamina <= MaxStamina && isOnLand)
+        if (Stamina <= MaxStamina && wasOnLand)
         {
             Stamina += 0.1f;
             Stamina = Stamina >= MaxStamina ? MaxStamina : Stamina;
@@ -102,7 +106,13 @@ public class Crow : MonoBehaviour
 
     public void Landed(bool onLand)
     {
-        isOnLand = onLand;
+        if (!wasOnLand && onLand)
+        {
+            jumpParticles.Play();
+        }
+        wasOnLand = onLand;
+
+
     }
 
     internal void Collect(Collectable collectable)
@@ -124,5 +134,13 @@ public class Crow : MonoBehaviour
     public void AscendingStatusChanged(bool isAscending)
     {
         //this.isAscending = isAscending;
+    }
+
+    public void OnJump()
+    {
+        if (wasOnLand)
+        {
+            jumpParticles.Play();
+        }
     }
 }
