@@ -14,7 +14,7 @@ public class Crow : MonoBehaviour
     {
         get { return level; }
         set
-        {            
+        {
             level = value;
             OnLevelChanged.Invoke();
         }
@@ -24,6 +24,10 @@ public class Crow : MonoBehaviour
 
     private CharacterController2D characterController2D;
 
+    private Animator animator;
+    [SerializeField]
+    private Transform mouth;
+
     [SerializeField]
     private float stamina = 15;
     private float landedMovementSpeed = 0;
@@ -32,7 +36,7 @@ public class Crow : MonoBehaviour
     {
         get { return stamina; }
         set
-        {            
+        {
             stamina = value;
             OnStaminaChanged.Invoke();
         }
@@ -46,7 +50,7 @@ public class Crow : MonoBehaviour
     {
         get { return collectableCount; }
         set
-        {            
+        {
             collectableCount = value;
             OnCollectableCountChanged.Invoke();
         }
@@ -65,6 +69,7 @@ public class Crow : MonoBehaviour
         characterController2D = gameObject.GetComponent<CharacterController2D>();
         characterController2D.OnLandEvent.AddListener(Landed);
         landedMovementSpeed = MovementSpeed;
+        animator = gameObject.transform.Find("Rig").GetComponent<Animator>();
     }
 
     internal void LevelUp()
@@ -101,8 +106,14 @@ public class Crow : MonoBehaviour
     }
 
     internal void Collect(Collectable collectable)
-    {        
+    {
+        animator.SetTrigger("Eeating");
+        collectable.transform.SetParent(mouth.transform);
+        collectable.transform.position = Vector3.zero;
+        collectable.transform.localPosition = Vector3.zero;
+
         CollectableCount++;
+        GameObject.Destroy(collectable.gameObject, 0.25f);
     }
 
     public void Flap()

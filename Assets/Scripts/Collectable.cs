@@ -22,8 +22,7 @@ public class Collectable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             var crow = other.gameObject.GetComponent<Crow>();
-            crow.Collect(this);
-            GameObject.Destroy(this.gameObject);
+            crow.Collect(this);            
         }
     }
 }
