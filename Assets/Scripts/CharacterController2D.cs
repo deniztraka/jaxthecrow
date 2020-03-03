@@ -204,7 +204,7 @@ public class CharacterController2D : MonoBehaviour
         }
         else
 
-        if (!m_Grounded && Mathf.FloorToInt(m_Rigidbody2D.velocity.y) != 0)
+        if (!m_Grounded )
         {
             animator.SetBool("IsFlying", true);
             animator.SetBool("IsWalking", false);
