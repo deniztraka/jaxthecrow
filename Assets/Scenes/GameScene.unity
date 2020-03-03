@@ -227,12 +227,12 @@ PrefabInstance:
     - target: {fileID: 8429427110529615332, guid: 4824e673ce164524f89603645cb467b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.31
+      value: 5.489
       objectReference: {fileID: 0}
     - target: {fileID: 8429427110529615332, guid: 4824e673ce164524f89603645cb467b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.96
+      value: -3.018
       objectReference: {fileID: 0}
     - target: {fileID: 8429427110529615332, guid: 4824e673ce164524f89603645cb467b6,
         type: 3}
@@ -12830,30 +12830,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4901270307219846948, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: WingPower
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901270307219846948, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: stamina
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901270307219846948, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: MaxStamina
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846952, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
       propertyPath: m_Name
       value: Crow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901270307219846954, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
@@ -12863,7 +12843,7 @@ PrefabInstance:
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.474
+      value: -2.843
       objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846955, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
