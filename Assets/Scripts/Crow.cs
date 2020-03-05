@@ -117,6 +117,13 @@ public class Crow : MonoBehaviour
 
     internal void Collect(Collectable collectable)
     {
+        if(collectable.transform.position.x > transform.position.x && !characterController2D.IsFacingRight()){
+            characterController2D.Flip();
+        }else if (collectable.transform.position.x < transform.position.x && characterController2D.IsFacingRight()){
+            characterController2D.Flip();
+        }
+        
+
         animator.SetTrigger("Eeating");
         collectable.transform.SetParent(mouth.transform);
         collectable.transform.position = Vector3.zero;
