@@ -38,6 +38,7 @@ public class CharacterController2D : MonoBehaviour
     }
 
     public Animator animator;
+    private PlayerSoundEffectsManager soundEffectsManager;
 
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -64,6 +65,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void Awake()
     {
+        soundEffectsManager = GetComponent<PlayerSoundEffectsManager>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -102,7 +104,7 @@ public class CharacterController2D : MonoBehaviour
                 m_Grounded = true;
                 // if (!wasGrounded)
                 // {
-                //     OnLandEvent.Invoke(true);
+                //     soundEffectsManager.Play("land", false);
                 // }
                 // OnLandEvent.Invoke(false);
             }
@@ -199,16 +201,24 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsFlying", false);
+            if (soundEffectsManager != null)
+            {
+                soundEffectsManager.Play("movement", true);
+            }
             OnLandEvent.Invoke(true);
             //Debug.Log("onLand");
         }
         else
 
-        if (!m_Grounded )
+        if (!m_Grounded)
         {
             animator.SetBool("IsFlying", true);
             animator.SetBool("IsWalking", false);
-             OnLandEvent.Invoke(false);
+            if (soundEffectsManager != null)
+            {
+                soundEffectsManager.Play("flying", true);
+            }
+            OnLandEvent.Invoke(false);
             //Debug.Log("flying");
         }
         else
@@ -217,12 +227,28 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.SetBool("IsFlying", false);
             animator.SetBool("IsWalking", false);
+            if (soundEffectsManager != null)
+            {
+                soundEffectsManager.Play("idle", false);
+            }
             var rnd = Random.Range(0, 1000);
             if (rnd > 995)
             {
                 //Debug.Log(rnd);
                 animator.SetTrigger("Eyes");
             }
+
+            var rnd2 = Random.Range(0, 1000);
+            if (rnd > 995)
+            {
+                //Debug.Log(rnd);
+                if (soundEffectsManager != null)
+                {
+                    soundEffectsManager.Play("shout", false);
+                    animator.SetTrigger("Shout");
+                }
+            }
+
             OnLandEvent.Invoke(true);
         }
 
@@ -245,7 +271,8 @@ public class CharacterController2D : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public bool IsFacingRight(){
+    public bool IsFacingRight()
+    {
         return m_FacingRight;
     }
 }
