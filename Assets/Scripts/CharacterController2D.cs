@@ -199,8 +199,11 @@ public class CharacterController2D : MonoBehaviour
 
         if (m_Grounded && (horizontalVelocity < -0.5 || horizontalVelocity > 0.5))
         {
-            animator.SetBool("IsWalking", true);
-            animator.SetBool("IsFlying", false);
+            if (animator)
+            {
+                animator.SetBool("IsWalking", true);
+                animator.SetBool("IsFlying", false);
+            }
             if (soundEffectsManager != null)
             {
                 soundEffectsManager.Play("movement", true);
@@ -212,8 +215,11 @@ public class CharacterController2D : MonoBehaviour
 
         if (!m_Grounded)
         {
-            animator.SetBool("IsFlying", true);
-            animator.SetBool("IsWalking", false);
+            if (animator)
+            {
+                animator.SetBool("IsFlying", true);
+                animator.SetBool("IsWalking", false);
+            }
             if (soundEffectsManager != null)
             {
                 soundEffectsManager.Play("flying", true);
@@ -225,8 +231,11 @@ public class CharacterController2D : MonoBehaviour
 
         if (m_Grounded && (horizontalVelocity >= -0.5 && horizontalVelocity <= 0.5))
         {
-            animator.SetBool("IsFlying", false);
-            animator.SetBool("IsWalking", false);
+            if (animator)
+            {
+                animator.SetBool("IsFlying", false);
+                animator.SetBool("IsWalking", false);
+            }
             if (soundEffectsManager != null)
             {
                 soundEffectsManager.Play("idle", false);
@@ -235,7 +244,10 @@ public class CharacterController2D : MonoBehaviour
             if (rnd > 995)
             {
                 //Debug.Log(rnd);
-                animator.SetTrigger("Eyes");
+                if (animator)
+                {
+                    animator.SetTrigger("Eyes");
+                }
             }
 
             var rnd2 = Random.Range(0, 1000);
@@ -245,7 +257,10 @@ public class CharacterController2D : MonoBehaviour
                 if (soundEffectsManager != null)
                 {
                     soundEffectsManager.Play("shout", false);
-                    animator.SetTrigger("Shout");
+                    if (animator)
+                    {
+                        animator.SetTrigger("Shout");
+                    }
                 }
             }
 
