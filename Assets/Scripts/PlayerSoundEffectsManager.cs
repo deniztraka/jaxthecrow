@@ -11,6 +11,7 @@ public class PlayerSoundEffectsManager : MonoBehaviour
     public AudioClip Jump;
     public AudioClip Land;
     public AudioClip Flying;
+    public AudioClip Eating;
 
     void Start()
     {
@@ -22,6 +23,22 @@ public class PlayerSoundEffectsManager : MonoBehaviour
     {
         switch (clipName)
         {
+            case "eating":
+                if (loop)
+                {
+                    source.clip = Eating;
+                    source.loop = true;
+                    if (!source.isPlaying)
+                    {   
+                        source.Play();
+                    }
+                }
+                else
+                {
+                    source.PlayOneShot(Eating);
+                }
+
+                break;
             case "shout":
                 if (loop)
                 {

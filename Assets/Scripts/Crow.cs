@@ -31,6 +31,8 @@ public class Crow : MonoBehaviour
     [SerializeField]
     private Transform mouth;
 
+    private PlayerSoundEffectsManager soundEffectsManager;
+
     [SerializeField]
     private float stamina = 15;
     private float landedMovementSpeed = 0;
@@ -74,6 +76,7 @@ public class Crow : MonoBehaviour
         characterController2D.OnLandEvent.AddListener(Landed);
         landedMovementSpeed = MovementSpeed;
         animator = gameObject.transform.Find("Rig").GetComponent<Animator>();
+        soundEffectsManager = GetComponent<PlayerSoundEffectsManager>();
     }
 
     internal void LevelUp()
@@ -123,7 +126,7 @@ public class Crow : MonoBehaviour
             characterController2D.Flip();
         }
         
-
+        soundEffectsManager.Play("eating",false);
         animator.SetTrigger("Eeating");
         collectable.transform.SetParent(mouth.transform);
         collectable.transform.position = Vector3.zero;

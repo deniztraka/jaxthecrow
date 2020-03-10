@@ -19,32 +19,14 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.x < LeftPoint.position.x)
+        
+        if (LeftPoint != null && gameObject.transform.position.x < LeftPoint.position.x)
         {
             worm.HorizontalMove = 1;
         }
-        else if (gameObject.transform.position.x > RightPoint.position.x)
+        else if (RightPoint != null && gameObject.transform.position.x > RightPoint.position.x)
         {
             worm.HorizontalMove = -1;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-
-#if UNITY_EDITOR
-        Gizmos.color = Color.red;
-
-        //Draw the suspension
-        Gizmos.DrawLine(
-            Vector3.zero,
-            Vector3.up
-        );
-
-        //draw force application point
-        Gizmos.DrawWireSphere(Vector3.zero, 0.05f);
-
-        Gizmos.color = Color.white;
-#endif
     }
 }
