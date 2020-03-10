@@ -93,7 +93,7 @@ public class Crow : MonoBehaviour
         }
         else
         {
-            MovementSpeed = landedMovementSpeed * 1.5f;
+            MovementSpeed = landedMovementSpeed * 3f;
         }
     }
 
