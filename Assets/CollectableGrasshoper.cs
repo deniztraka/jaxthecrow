@@ -27,7 +27,7 @@ public class CollectableGrasshoper : Collectable
 
     void Update()
     {
-        if (wasOnLand)
+        if (wasOnLand && !isJumped)
         {
             HorizontalMove = 0;
         }        
