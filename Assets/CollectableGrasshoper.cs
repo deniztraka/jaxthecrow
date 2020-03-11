@@ -13,14 +13,15 @@ public class CollectableGrasshoper : Collectable
     private bool wasJumped = false;
     private bool wasOnLand = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         Random.InitState(System.Environment.TickCount);
     }
 
     void Start()
     {
         controller = gameObject.GetComponent<CharacterController2D>();
-        InvokeRepeating("Jump", Random.Range(0, 5), 1);        
+        InvokeRepeating("Jump", Random.Range(0, 5), 3);
         controller.OnLandEvent.AddListener(Landed);
     }
 
@@ -29,11 +30,7 @@ public class CollectableGrasshoper : Collectable
         if (wasOnLand)
         {
             HorizontalMove = 0;
-        }
-        else
-        {
-            HorizontalMove = 1;
-        }
+        }        
     }
 
     void FixedUpdate()
@@ -44,12 +41,14 @@ public class CollectableGrasshoper : Collectable
     }
 
     void Jump()
-    {        
-        
-        if (Random.Range(0, 100) > 90)
+    {
+
+        if (Random.Range(0, 100) > 20)
         {
+            controller.SetJumpPower(Random.Range(10, 20));
+            MovementSpeed = Random.Range(150, 300);
             isJumped = true;
-            HorizontalMove = 1;
+            HorizontalMove = Random.Range(0, 100) > 50 ? -1 : 1;
         }
     }
 
