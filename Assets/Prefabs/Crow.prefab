@@ -5575,10 +5575,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shout: {fileID: 8300000, guid: 799670a2013dc3a4bb18600fce8780c8, type: 3}
-  Movement: {fileID: 0}
-  Jump: {fileID: 0}
-  Land: {fileID: 0}
-  Flying: {fileID: 0}
+  Movement: {fileID: 8300000, guid: 769f752dc13177445869fc9dec7a6823, type: 3}
+  Jump: {fileID: 8300000, guid: 8a9a0d79a1d2e2e47aa6defa37934575, type: 3}
+  Land: {fileID: 8300000, guid: 3450fde701538dc4480ac55b6a5bd011, type: 3}
+  Flying: {fileID: 8300000, guid: 8a9a0d79a1d2e2e47aa6defa37934575, type: 3}
+  Eating: {fileID: 8300000, guid: a16c1c1007aacd144a0ed5480921921c, type: 3}
 --- !u!114 &4901270307219846951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,11 +5673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfdd18147d1fdb419c533b94c668ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStamina: 20
+  MaxStamina: 500
   level: 0
   jumpParticles: {fileID: 1229220894}
   mouth: {fileID: 9216392433832348397}
-  stamina: 20
+  stamina: 500
   WingPower: 2
   MovementSpeed: 50
   collectableCount: 0
@@ -5701,8 +5702,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -24839,48 +24839,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1669171532, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Flying
-      value: 
-      objectReference: {fileID: 8300000, guid: 8a9a0d79a1d2e2e47aa6defa37934575, type: 3}
-    - target: {fileID: 1669171532, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Movement
-      value: 
-      objectReference: {fileID: 8300000, guid: 769f752dc13177445869fc9dec7a6823, type: 3}
-    - target: {fileID: 1669171532, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Jump
-      value: 
-      objectReference: {fileID: 8300000, guid: 8a9a0d79a1d2e2e47aa6defa37934575, type: 3}
-    - target: {fileID: 1669171532, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Land
-      value: 
-      objectReference: {fileID: 8300000, guid: 3450fde701538dc4480ac55b6a5bd011, type: 3}
-    - target: {fileID: 1669171532, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Eating
-      value: 
-      objectReference: {fileID: 8300000, guid: a16c1c1007aacd144a0ed5480921921c, type: 3}
-    - target: {fileID: 1669171533, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669171533, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669171533, guid: 3fbfd4446a597f7428d419ab9b343b05, type: 3}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901270307219846948, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: MaxStamina
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901270307219846948, guid: 3fbfd4446a597f7428d419ab9b343b05,
-        type: 3}
-      propertyPath: stamina
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 4901270307219846952, guid: 3fbfd4446a597f7428d419ab9b343b05,
         type: 3}
       propertyPath: m_Name
