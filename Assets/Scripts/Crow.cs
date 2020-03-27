@@ -4,8 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Crow : MonoBehaviour
+public class Crow : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    private int health;
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
 
     public float MaxStamina = 15;
     [SerializeField]
@@ -61,6 +68,7 @@ public class Crow : MonoBehaviour
         }
     }
 
+    public UnityEvent OnDead;
 
     public UnityEvent OnStaminaChanged;
     public UnityEvent OnLevelChanged;
@@ -120,13 +128,16 @@ public class Crow : MonoBehaviour
 
     internal void Collect(Collectable collectable)
     {
-        if(collectable.transform.position.x > transform.position.x && !characterController2D.IsFacingRight()){
-            characterController2D.Flip();
-        }else if (collectable.transform.position.x < transform.position.x && characterController2D.IsFacingRight()){
+        if (collectable.transform.position.x > transform.position.x && !characterController2D.IsFacingRight())
+        {
             characterController2D.Flip();
         }
-        
-        soundEffectsManager.Play("eating",false);
+        else if (collectable.transform.position.x < transform.position.x && characterController2D.IsFacingRight())
+        {
+            characterController2D.Flip();
+        }
+
+        soundEffectsManager.Play("eating", false);
         animator.SetTrigger("Eeating");
         collectable.transform.SetParent(mouth.transform);
         collectable.transform.position = Vector3.zero;
@@ -151,6 +162,15 @@ public class Crow : MonoBehaviour
         if (wasOnLand)
         {
             jumpParticles.Play();
+        }
+    }
+
+    public void GetDamage(int val)
+    {
+        Health = Health - val;
+        if (Health <= 0)
+        {
+            OnDead.Invoke();
         }
     }
 }
