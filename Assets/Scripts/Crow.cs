@@ -85,6 +85,7 @@ public class Crow : MonoBehaviour, IDamageable
         landedMovementSpeed = MovementSpeed;
         animator = gameObject.transform.Find("Rig").GetComponent<Animator>();
         soundEffectsManager = GetComponent<PlayerSoundEffectsManager>();
+        Stamina = MaxStamina;
     }
 
     internal void LevelUp()
@@ -168,6 +169,10 @@ public class Crow : MonoBehaviour, IDamageable
     public void GetDamage(int val)
     {
         Health = Health - val;
+
+        animator.SetTrigger("Damaged");
+        soundEffectsManager.Play("shout", false);
+
         if (Health <= 0)
         {
             OnDead.Invoke();

@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject MenuPanel;
     public Crow Crow;
     // Start is called before the first frame update
+
+    void Awake(){
+        Application.targetFrameRate = 60;
+    }
     void Start()
     {
         Crow.OnDead.AddListener(OnDead);

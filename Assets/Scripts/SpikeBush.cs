@@ -15,6 +15,8 @@ public class SpikeBush : MonoBehaviour, IHurtful
     public void TakeDamage(IDamageable damagableObj)
     {
         damagableObj.GetDamage(damageDone);
+
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +25,12 @@ public class SpikeBush : MonoBehaviour, IHurtful
         if (damagableObj != null)
         {
             TakeDamage(damagableObj);
+
+
+            var force = transform.position - other.transform.position;
+
+            force.Normalize();
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(-force * 100);
         }
     }
 }
