@@ -10,11 +10,12 @@ public class SimpleDraw : MonoBehaviour
 {
     public float minimumDistance = 1.0f;
     private Vector3 lastPosition;
+    private Camera mainCam;
 
     // Use this for initialization
     void Start()
     {
-
+        mainCam = Camera.main;
     }
 
     private void Smoothen(SpriteShapeController sc, int pointIndex)
@@ -41,7 +42,7 @@ public class SimpleDraw : MonoBehaviour
     {
         var mp = Input.mousePosition;
         mp.z = 10.0f;
-        mp = Camera.main.ScreenToWorldPoint(mp);
+        mp = mainCam.ScreenToWorldPoint(mp);
         var dt = Mathf.Abs((mp - lastPosition).magnitude);
         var md = (minimumDistance > 1.0f) ? minimumDistance : 1.0f;
         if (Input.GetMouseButton(0) && dt > md)

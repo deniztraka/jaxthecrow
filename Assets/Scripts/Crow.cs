@@ -30,6 +30,9 @@ public class Crow : MonoBehaviour, IDamageable
     [SerializeField]
     private ParticleSystem jumpParticles;
 
+    [SerializeField]
+    private ParticleSystem damagedParticles;
+
     private bool isAscending;
 
     private CharacterController2D characterController2D;
@@ -78,6 +81,8 @@ public class Crow : MonoBehaviour, IDamageable
     private bool wasOnLand = false;
     private bool wasFlying = false;
 
+    private bool isDead = false;
+
     void Start()
     {
         characterController2D = gameObject.GetComponent<CharacterController2D>();
@@ -86,6 +91,7 @@ public class Crow : MonoBehaviour, IDamageable
         animator = gameObject.transform.Find("Rig").GetComponent<Animator>();
         soundEffectsManager = GetComponent<PlayerSoundEffectsManager>();
         Stamina = MaxStamina;
+        animator.SetFloat("Health", Health);
     }
 
     internal void LevelUp()
@@ -96,23 +102,29 @@ public class Crow : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (wasOnLand)
+        if (!isDead)
         {
-            MovementSpeed = landedMovementSpeed;
-        }
-        else
-        {
-            MovementSpeed = landedMovementSpeed * 3f;
+            if (wasOnLand)
+            {
+                MovementSpeed = landedMovementSpeed;
+            }
+            else
+            {
+                MovementSpeed = landedMovementSpeed * 3f;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        //if (Stamina <= MaxStamina && !isAscending)
-        if (Stamina <= MaxStamina && wasOnLand)
+        if (!isDead)
         {
-            Stamina += 0.1f;
-            Stamina = Stamina >= MaxStamina ? MaxStamina : Stamina;
+            //if (Stamina <= MaxStamina && !isAscending)
+            if (Stamina <= MaxStamina && wasOnLand)
+            {
+                Stamina += 0.1f;
+                Stamina = Stamina >= MaxStamina ? MaxStamina : Stamina;
+            }
         }
     }
 
@@ -166,16 +178,28 @@ public class Crow : MonoBehaviour, IDamageable
         }
     }
 
+    IEnumerator OnDeadInvoke(float delay)
+    {
+        yield return new WaitForSeconds(delay); //Count is the amount of time in seconds that you want to wait.
+                                                //And here goes your method of resetting the game...
+        OnDead.Invoke();
+        yield return null;
+    }
+
     public void GetDamage(int val)
     {
         Health = Health - val;
 
         animator.SetTrigger("Damaged");
         soundEffectsManager.Play("shout", false);
+        damagedParticles.Play();
+
+        animator.SetFloat("Health", Health);
 
         if (Health <= 0)
         {
-            OnDead.Invoke();
+            isDead = true;
+            StartCoroutine("OnDeadInvoke", 3);
         }
     }
 }
